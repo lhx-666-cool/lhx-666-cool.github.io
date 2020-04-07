@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>函数求值</title>
+</head><script src="/storage/sdcard0/下载/Download/vConsole-3.3.4/dist/vconsole.min.js"></script> </head> <script>    var vConsole = new VConsole();   console.log('VConsole is cool'); </script>
+<body bgColor="#cfc">
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="index.html">返回主页</a>
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="hsqz.html">重算</a>
+
+<div style="font-size:70px;color:#424242">您输入的表达式为:</div>
+<script>
+//document.write('<div style="font-size:70px;color:#424242">'+bds+'</div>');
+//document.write('<div style="font-size:70px;color:#424242">x值'+' '+' '+' '+'y值</div>');
+
+var bds = window.prompt('请输入函数表达式填写规则请进入首页查看');
+var reg=/[abcdefghigklmnopqrstuvwyzABCDEFGHIGKLMNOPIRSTUVWYZ]/;
+var beg= /x/
+//if(reg.test(bds)==true){
+//alert('请输入正确的函数表达式');}
+if(beg.test(bds)==false||reg.test(bds)==true||String(parseInt(bds))=="NaN"){
+alert('请输入正确的函数表达式');}
+
+//if(String(parseInt(bds))=="NaN"&&reg.test(bds)==false){
+//alert('请输入正确的函数表达式')}
+document.write('<div style="font-size:70px;color:#424242">'+bds+'</div>');
+document.write('<div style="font-size:70px;color:#424242">x值'+' '+' '+' '+'y值</div>');
+
+for (x=-25;x<=25;x++){
+     jg=eval(bds);
+if(String(parseInt(bds))=="NaN"){
+break}
+if(reg.test(bds)==true){
+break;}
+if(beg.test(bds)==false&&String(bds)!="undefined"){
+break;}
+
+if (String(bds)=="undefined"&&beg.text(bds)!=false){
+ 
+     break;}
+document.write('<div style="display:inline;font-size:50px;color:#424242">'+x+' '+' '+jg+'<br></div>')}
+
+</script>
+<script>
+
+function sr(){try{
+var x =window.prompt('请输入自定义x值');
+x =eval(x);
+function zdy(x){
+jg = eval(bds);
+alert(x+" "+" "+jg)}
+zdy(x)}catch(m){
+alert('输入错误')}}
+</script>
+<button style="border-radius:25px;font-size:150px;position:fixed;right:2px;top:50%" onclick="sr()">自定义</button>
+
+</body>
+</html>
