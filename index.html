@@ -98,7 +98,7 @@
  //console.log(xx)
 // $(document).ready(function(){
     //    $("#dhl").click
-    $("#dhl").click(function(){
+    $("#dhl").on("touchend",function(){
     $(this).toggleClass("kjl");
     if($("#dhdz").css("display")=="none"){
     $("#dhdz").slideDown(600)}
