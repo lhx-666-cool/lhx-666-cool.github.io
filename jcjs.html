@@ -1,0 +1,123 @@
+<html>
+<!--<script type="text/javascript">
+var b =2*3
+document.write(b)
+
+</script>-->
+<title>阶乘计算</title>
+<body bgcolor="#FFCC99">
+<span style="color:#424242;font-size:50px">LHX版权所有</span>
+
+<script>
+	    function time(){
+               var date = new Date();
+           	    var year = date.getFullYear();
+                var month = date.getMonth()+1;
+        				        var day = date.getDate();
+                var week = date.getDay();
+                week="星期"+"日一二三四五六".charAt(week);
+                /*switch(week){
+                    case 1:
+                        week="星期一";
+                        break;
+                    case 2:
+                        week="星期二";
+                        break;
+                    case 3:
+                        week="星期三";
+                        break;
+                    case 4:
+                        week="星期四";
+                        break;
+                    case 5:
+                        week="星期五";
+                        break;
+                    case 6:
+                        week="星期六";
+                        break;
+                    case 0:
+                        week="星期日";
+                        break;
+                }*/
+                var hour =date.getHours();
+                hour=hour<10?"0"+hour:hour;
+                var minute =date.getMinutes();
+                minute=minute<10?"0"+minute:minute;
+                var second = date.getSeconds();
+                second=second<10?"0"+second:second;
+                var currentTime = year+"-"+month+"-"+day+"  "+week+" "+hour+":"+minute+":"+second;
+                document.getElementById("time").innerHTML=currentTime;
+            }
+            setInterval("time()",1000);
+        </script>
+        <span id="time" style="margin-left:20px;padding:5px;font-size:50px;color:#424242;background:#99CC99"></span>
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="index.html">返回主页</a>
+
+<a href="jcjs.html" style="text-decoration:none;font-size:100px;color:#424242;background-color:#f40;border-radius:30px">重算</a>
+<script type="text/javascript" style="font-size:100px;color:red">
+
+function jc(x){
+if(x == 1){
+return 1;}
+return x*jc(x-1);}
+var x = parseInt(window.prompt('在此输入数字计算阶乘'));
+var q ="ERROR";
+var m = "请输入数字";
+if(String(x) == "NaN"){
+    
+//for( ;String(x) == "NaN"; ){
+document.write('<center><span style="color:#f00;font-size:200px">'+q+'<br>'+m+'</span></center>');
+}
+//    document.write('<center><span style="color:#f00;font-size:200px">'+q+'<br>'+m+'</span></center>');
+//    var x = parseInt(window.prompt('请输入数字'));
+//    if (String(x) != "NaN")
+ //   {break;}
+ //     }
+      //for循环
+      
+var c = jc(x);
+q =" ";
+m=" ";
+document.write('<span style="font-size:100px"><br>您输入的数字:'+x+'<br>'+'结果为：</span><br>');
+if(x > 170){
+         document.write('<span style="color:#424242;font-size:50px">（你输入的数字太大了）</span><br>');}
+document.write('<span style="font-size:100px">'+c+'</span>'+'<br>'+'<br><br><br><br><br><br><br><br><br><br><br><br>');
+//function sx(){
+//loaction.reload([bForceGet])}
+</script>
+<!--<button onclick="sx()">重算</button>-->
+
+<!--<script type="text/javascript">
+var q ="ERROR";
+var m = "请输入数字";
+for( ;String(x) == "NaN"; ){
+
+    document.write('<center><span style="color:#f00;font-size:200px">'+q+'<br>'+m+'</span></center>');
+    var x = parseInt(window.prompt('请输入数字'));
+    if (String(x) != "NaN")
+    {break;}
+      }
+     
+</script>
+
+<!--<script type="text/javascript" style="font-size:100px;color:red">
+if(String(x)!="NaN"){
+function jc(n){
+//parseInt(window.prompt('在此输入数字'));
+if(n == 1){
+return 1;}
+return n*jc(n-1);}
+var x = parseInt(window.prompt('在此输入数字计算阶乘'));
+var c = jc(x);
+var q =" ";
+var m =" ";
+document.write('<span style="font-size:100px">'+c+'</span>');
+}
+</script>
+<!--<script type="text/javascript">
+if(String(x)=="NaN"){
+help();
+</script>-->
+
+ </body>
+</html>

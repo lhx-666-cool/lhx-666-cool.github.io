@@ -1,0 +1,34 @@
+<HTML>
+<head>
+<script src="/storage/sdcard0/下载/Download/vConsole-3.3.4/dist/vconsole.min.js"></script> 
+
+<script>   
+ var vConsole = new VConsole();
+   console.log('VConsole is cool');
+ </script>
+<title>弧度转角度工具</title>
+</head>
+<body bgcolor="#c8e6c9" style="width:500px">
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="index.html">返回主页</a>
+
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="hzj.html">重算</a>
+<!--<div style="color:#424242;font-size:50px">再次计算请刷新网页</div>-->
+<script type="text/javascript" style="font-size:100px;color:red">
+var x = window.prompt('在此输入弧度');
+var reg=/π/;
+if(reg.test(x)==true){
+ var m=   x.replace(reg,"*1");
+var m=eval(m);
+  document.write('<div style="font-size:58px">你输入的弧度为：'+m+'π</div>');
+var b=180*m;
+document.write('<div style="font-size:58px">角度为:</div>' +'<div style="font-size:50px">'+b+'</div>');
+
+};
+
+var m=eval(x);
+var n = 180/3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067;
+var b = m*n;
+document.write('<div style="font-size:58px">你输入的弧度为：'+m+'</div>')
+document.write('<div style="font-size:58px">角度为:</div>' +'<div style="font-size:50px">'+b+'</div>');
+</script>
+</html>
