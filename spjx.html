@@ -1,11 +1,12 @@
 <html>
-<head>
-    <script src="vconsole.min.js"></script>
+<!--<head>-->
+    <!--<script src="/storage/sdcard0/下载/Download/vConsole-3.3.4/dist/vconsole.min.js"></script>
+</head>
 <script>
   // 初始化
   var vConsole = new VConsole();
   console.log('VConsole is cool');
-</script>
+</script>-->
 <!--<head>
   <script src="path/to/vconsole.min.js"></script>
   <script>
@@ -68,17 +69,17 @@ var x = window.prompt('请输入需要解析的视频网址');
 var b = "\""+"http://jx.618ge.com/?url="+x+"\"";
 var c = "\""+"http://jx.drgxj.com/?url="+x+"\"";
 //document.write(b);
-document.write('<a style="position:absolute;top:100px;text-decoration:none;color:#424242;font-size:70px" href='+c+'>点击此处进入视频解析1（推荐）</a>');
+document.write('<a style="position:absolute;top:100px;;text-decoration:none;color=#424242;font-size:70px" href='+c+'>点击此处进入视频解析1（推荐）</a>');
 document.write('<br><br>');
-document.write('<a style="position:absolute;top:300px;text-decoration:none;color:#424242;font-size:70px" href='+b+'>点击此处进入视频解析2</a>');
+document.write('<a style="position:absolute;top:180px;;text-decoration:none;color=#424242;font-size:70px" href='+b+'>点击此处进入视频解析2</a>');
 </script>
-<div><img id="img" style="position:absolute;z-index:-1;top:500px;height:200px" src="http://gchat.qpic.cn/gchatpic_new/3032471065/583452831-3020971661-6D4648FE7536DFEDE3E2745498566388/0">
+<div><img id="img" style="position:absolute;z-index:-1;top:300px" src="http://gchat.qpic.cn/gchatpic_new/3032471065/583452831-3020971661-6D4648FE7536DFEDE3E2745498566388/0">
 </img></div>
 
 <script type="text/javascript">
 //document.write('sjsksnsm');
  var oDiv = document.getElementsByTagName('img');
-  oDiv.touchend = function js ( ) {
+  oDiv.onclick = function js ( ) {
             img.style.height = "600px"
          }
      //  js ()

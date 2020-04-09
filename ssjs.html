@@ -1,0 +1,32 @@
+<html>
+<title>素数计算</title>
+<body bgcolor=#b9ffb7">
+<p style="color:424242;font-size:50px"><strong>LHX版权所有</strong></p>
+<a style="color:#424242;font-size:70px;text-decoration:none;background-color:green;border-radius:30px" href="index.html">返回主页</a>
+
+<script type="text/javascript">
+var num = 0;
+var q = "一共有 "
+var m =" 个数"
+var x = parseInt(window.prompt('在此输入数字，将计算从0到这个数范围内的所有素数'));
+if(String(x) == "NaN"){
+    document.write('<center><span style="color:#f00;font-size:200px">ERROR<br>请输入数字</span></center>');
+    var q = " ";
+    var m = " "             };
+var count = 0;
+for(var i = 2;i <= x;i++)
+    {for(var j = 1;j <= Math.sqrt(i );j ++){
+    if(i%j == 0){
+    count ++}
+    }
+    if(count == 1){
+    document.write(i + " ");
+    num ++
+    }
+     count = 0
+    }
+    document.write(q+num+m);
+    </script>
+
+    </html>
+    
