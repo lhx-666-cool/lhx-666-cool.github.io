@@ -1,0 +1,159 @@
+<html>
+
+<head>
+
+<!--<script src="/storage/sdcard0/下载/Download/jquery-3.4.1.min.js"></script>
+
+<script src="/storage/sdcard0/下载/Download/vConsole-3.3.4/dist/vconsole.min.js"></script> 
+
+<script>   
+
+ var vConsole = new VConsole();
+
+   console.log('VConsole is cool');
+
+  </script> -->
+
+  <script src="../jquery.3.4.1.min.js"></script>
+
+<meta name="viewport" content="width=viewport,minimum-scale=0.3,maximum-scale=1000,user-scalable=yes">
+
+<style>
+
+#wai{position:absolute;
+
+     background-color:#dedede;
+
+     width:100px;
+
+     height:50px;
+
+     border-radius:500px;}
+
+     
+
+     
+
+#nei{background-color:white;
+
+     margin-top:5px;
+
+     margin-left:3px;
+
+     width:40px;
+
+     height:40px;
+
+     position:absolute;
+
+     z-index:10;
+
+     border-radius:500px;
+
+     border:2px solid #dedede }
+
+#bian{background-color:white;
+
+      width:90px;
+
+      height:40px;  
+
+      margin:5px;
+
+      z-index:10;
+
+      border-radius:500px;
+
+      position:absolute }  
+
+</style>
+
+<script>
+
+ $(document).ready(function(){
+
+$("#nei").click(function(){
+
+if($("#nei").css("left")=="0px"){
+
+   $("#nei").animate({
+
+   width:"60px",
+
+   },200).animate({
+
+   width:"55px",
+
+   left:"35px"},50)
+
+   .animate({
+
+   width:"40px",
+
+   left:"52px"},50);
+
+$("#wai").css("backgroundColor","#4CD964");
+
+$("#bian").animate({
+
+     height:"0px",
+
+     width:"0px",
+
+     right:"45px",
+
+     top:"20px"},170)
+
+      }else if($("#nei").css("left")=="52px"){
+
+   $("#nei").animate({
+
+   width:"60px",
+
+   left:"32px"},200).animate({
+
+   width:"55px",
+
+   left:"17px"},50)
+
+   .animate({
+
+   width:"40px",
+
+   left:"0px"},50);
+
+$("#wai").css("backgroundColor","#dedede");
+
+$("#bian").animate({
+
+     height:"40px",
+
+     width:"90px",
+
+     right:"0px",
+
+     top:"0px"},170)
+
+      }})})
+
+</script>
+
+</head>
+
+<body>
+
+<div id="wai">
+
+<div id="bian">
+
+</div>
+
+  <button id="nei">
+
+  </button>
+
+</div>
+
+</body>
+
+</html>
