@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				background-color: lightblue;
+			}
+			#mycan{
+
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			button {
+				margin-bottom: 10px;
+			}
+			#ref {
+				width: 100px;
+				height: 50px;
+				background-color: coral;
+				border: 0px;
+				border-radius: 5px;
+				color: white;
+				font-size: 20px;
+				position: relative;
+				z-index: 3;
+				
+			}
+			#run, #stop, #con, #ok{
+				width: 100px;
+				height: 50px;
+				background-color: coral;
+				border: 0px;
+				border-radius: 5px;
+				color: white;
+				font-size: 20px;
+				position: relative;
+				z-index: 3;
+			}
+			#tips {
+				background-color: green;
+				width: 140px;
+				height: 50px;
+				color: white;
+				line-height: 50px;
+				border-radius: 5px;
+				padding-left: 5px;
+				padding-right: 5px;
+				text-align: center;
+			}
+			#seed{
+				width: 150px;
+				background-color: green;
+				border: 0;
+				height: 50px;
+				margin-top: 10px;
+				border-radius: 5px;
+				color: white;
+				font-size: 20px;
+				padding-left: 10px;
+				box-sizing: border-box;
+			}
+			#ok {
+				margin-top: 10px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="mycan" width="1000px" height="1000px">
+		</canvas>
+		<button id="ref">刷  新</button><br>
+		<button id="stop">暂 停</button><br>
+		<button id="con">继 续</button><br>
+		<button id="run">单步运行</button>
+		<br>
+		<div>
+			<div id="tips">请输入初始生命数</div>
+		<input id="seed" value="2500"><br>
+		<button id="ok">确定</button><br>
+		</div>
+		<script type="module">
+			import{main} from "/live.js"
+			main();
+		</script>
+	</body>
+</html>
