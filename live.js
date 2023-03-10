@@ -1,7 +1,14 @@
+function min(x, y) {
+	if (x < y) {
+		return x;
+	}
+	return y;
+}
 function main() {
 	let canvas = document.querySelector("#mycan");
 	let high = window.innerHeight;
-	$("#mycan").css("height", high);
+	let wide = window.innerWidth;
+	$("#mycan").css("height", min(high,wide));
 	let ctx = canvas.getContext('2d');
 	ctx.lineWidth = 1;
 
