@@ -30,9 +30,9 @@ function main() {
 	}
 
 	function draw() {
-		for (let i = 0; i < 100; i++) {
-			for (let j = 0; j < 100; j++) {
-				if (live[i][j] == true) {
+		for (let i = 0; i <= 100; i++) {
+			for (let j = 0; j <= 100; j++) {
+				if (live[i][j] === true) {
 					ctx.fillRect(i * 10 + 1, j * 10 + 1, 8, 8);
 				} else {
 					ctx.clearRect(i * 10 + 1, j * 10 + 1, 8, 8);
@@ -43,7 +43,7 @@ function main() {
 	let seed = 1500;
 
 	function ref() {
-		ctx.clearRect(0, 0, 999, 999);
+		ctx.clearRect(0, 0, 1000, 1000);
 		line();
 		for (let i = 0; i <= 100; i++) {
 			for (let j = 0; j <= 100; j++) {
@@ -72,7 +72,7 @@ function main() {
 				for (let k = 0; k < 8; k++) {
 					let nx = i + dx[k],
 						ny = j + dy[k];
-					if (nx >= 1 && nx <= 100 && ny >= 1 && ny <= 100) {
+					if (nx >= 0 && nx <= 100 && ny >= 0 && ny <= 100) {
 						if (live[nx][ny] == true) {
 							cnt++;
 						}
