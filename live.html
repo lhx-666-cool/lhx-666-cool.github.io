@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
@@ -10,15 +11,18 @@
 				padding: 0;
 				background-color: lightblue;
 			}
-			#mycan{
+
+			#mycan {
 
 				position: absolute;
 				left: 50%;
 				transform: translateX(-50%);
 			}
+
 			button {
 				margin-bottom: 10px;
 			}
+
 			#ref {
 				width: 100px;
 				height: 50px;
@@ -29,9 +33,13 @@
 				font-size: 20px;
 				position: relative;
 				z-index: 3;
-				
+
 			}
-			#run, #stop, #con, #ok{
+
+			#run,
+			#stop,
+			#con,
+			#ok {
 				width: 100px;
 				height: 50px;
 				background-color: coral;
@@ -42,6 +50,7 @@
 				position: relative;
 				z-index: 3;
 			}
+
 			#tips {
 				background-color: green;
 				width: 140px;
@@ -51,10 +60,14 @@
 				border-radius: 5px;
 				padding-left: 5px;
 				padding-right: 5px;
+				box-sizing: border-box;
 				text-align: center;
+				position: relative;
+				z-index: 3;
 			}
-			#seed{
-				width: 150px;
+
+			#seed {
+				width: 140px;
 				background-color: green;
 				border: 0;
 				height: 50px;
@@ -64,29 +77,35 @@
 				font-size: 20px;
 				padding-left: 10px;
 				box-sizing: border-box;
+				position: relative;
+				z-index: 3;
 			}
+
 			#ok {
 				margin-top: 10px;
+				width: 140px;
 				background-color: green;
 			}
 		</style>
 	</head>
+
 	<body>
 		<canvas id="mycan" width="1000px" height="1000px">
 		</canvas>
-		<button id="ref">刷  新</button><br>
+		<button id="ref">刷 新</button><br>
 		<button id="stop">暂 停</button><br>
 		<button id="con">继 续</button><br>
 		<button id="run">单步运行</button>
 		<br>
 		<div>
 			<div id="tips">请输入初始生命数</div>
-		<input id="seed" value="2500"><br>
-		<button id="ok">确定</button><br>
+			<input id="seed" value="2500"><br>
+			<button id="ok">确定</button><br>
 		</div>
 		<script type="module">
 			import{main} from "/live.js"
 			main();
 		</script>
 	</body>
+
 </html>
