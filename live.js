@@ -4,11 +4,12 @@ function min(x, y) {
 	}
 	return y;
 }
+
 function main() {
 	let canvas = document.querySelector("#mycan");
 	let high = window.innerHeight;
 	let wide = window.innerWidth;
-	$("#mycan").css("height", min(high,wide));
+	$("#mycan").css("height", min(high, wide));
 	let ctx = canvas.getContext('2d');
 	ctx.lineWidth = 1;
 
@@ -66,9 +67,15 @@ function main() {
 	function run() {
 		let dx = [-1, 0, 1, -1, 1, -1, 0, 1];
 		let dy = [-1, -1, -1, 0, 0, 1, 1, 1];
+		let sumt = 0,
+			sumf = 0;
+		let cnt = 0;
+		let btx = [];
+		let bty = [];
+		let bfx = [];
+		let bfy = [];
 		for (let i = 0; i <= 100; i++) {
 			for (let j = 0; j <= 100; j++) {
-				let cnt = 0;
 				for (let k = 0; k < 8; k++) {
 					let nx = i + dx[k],
 						ny = j + dy[k];
@@ -79,17 +86,33 @@ function main() {
 					}
 				}
 				if (live[i][j] == false && cnt == 3) {
-					live[i][j] = true;
+					btx.push(i);
+					bty.push(j);
+					sumt++;
 				} else if (live[i][j] == true && cnt < 2) {
-					live[i][j] = false;
+					// live[i][j] = false;
+					bfx.push(i);
+					bfy.push(j);
+					sumf++;
 				} else if (live[i][j] == true && cnt > 3) {
-					live[i][j] = false;
+					// live[i][j] = false;
+					bfx.push(i);
+					bfy.push(j);
+					sumf++;
 				}
+				cnt = 0;
 			}
+		}
+		// console.log(btx, bty, bfx, bfy);
+		for (let i = 0; i < sumt; i++) {
+			live[btx[i]][bty[i]] = true;
+		}
+		for (let i = 0; i < sumf; i++) {
+			live[bfx[i]][bfy[i]] = false;
 		}
 		draw();
 	}
-	
+
 	let runfun = setInterval(() => {
 		run();
 		console.log("ok");
