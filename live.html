@@ -3,7 +3,9 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+		<title>生命游戏</title>
 		<script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
 		<style>
 			* {
@@ -17,6 +19,9 @@
 				position: absolute;
 				left: 50%;
 				transform: translateX(-50%);
+				border-radius: 3px;
+				margin: 10px;
+				
 			}
 
 			button {
@@ -50,7 +55,6 @@
 				position: relative;
 				z-index: 3;
 			}
-
 			#tips {
 				background-color: green;
 				width: 140px;
@@ -86,15 +90,28 @@
 				width: 140px;
 				background-color: green;
 			}
+			#head {
+				font-size: 35px;
+				color: crimson;
+				text-align: center;
+				box-sizing: border-box;
+				height: 80px;
+				line-height: 80px;
+				text-shadow: 3px 3px 10px black;
+			}
+			#con {
+				display: none;
+			}
 		</style>
 	</head>
 
 	<body>
+		<div id="head">生命游戏</div>
 		<canvas id="mycan" width="1000px" height="1000px">
 		</canvas>
 		<button id="ref">刷 新</button><br>
 		<button id="stop">暂 停</button><br>
-		<button id="con">继 续</button><br>
+		<button id="con">继 续</button>
 		<button id="run">单步运行</button>
 		<br>
 		<div>
@@ -103,8 +120,11 @@
 			<button id="ok">确定</button><br>
 		</div>
 		<script type="module">
-			import{main} from "/live.js"
+			import{main} from "live.js"
 			main();
+		</script>
+		<script type="module">
+			
 		</script>
 	</body>
 

@@ -4,12 +4,16 @@ function min(x, y) {
 	}
 	return y;
 }
-
 function main() {
 	let canvas = document.querySelector("#mycan");
-	let high = window.innerHeight;
+	let high = window.innerHeight - 90;
 	let wide = window.innerWidth;
-	$("#mycan").css("height", min(high, wide));
+	
+	if(high < wide) {
+		$("#mycan").css("height", high);
+	}else{
+		$("#mycan").css("width",wide);
+	}
 	let ctx = canvas.getContext('2d');
 	ctx.lineWidth = 1;
 
@@ -65,6 +69,10 @@ function main() {
 	})
 
 	function run() {
+		$("#con").css({
+			"display": "none",
+		});
+		$("#stop").css("display","block");
 		let dx = [-1, 0, 1, -1, 1, -1, 0, 1];
 		let dy = [-1, -1, -1, 0, 0, 1, 1, 1];
 		let sumt = 0,
@@ -90,12 +98,10 @@ function main() {
 					bty.push(j);
 					sumt++;
 				} else if (live[i][j] == true && cnt < 2) {
-					// live[i][j] = false;
 					bfx.push(i);
 					bfy.push(j);
 					sumf++;
 				} else if (live[i][j] == true && cnt > 3) {
-					// live[i][j] = false;
 					bfx.push(i);
 					bfy.push(j);
 					sumf++;
@@ -103,7 +109,6 @@ function main() {
 				cnt = 0;
 			}
 		}
-		// console.log(btx, bty, bfx, bfy);
 		for (let i = 0; i < sumt; i++) {
 			live[btx[i]][bty[i]] = true;
 		}
@@ -126,11 +131,18 @@ function main() {
 	$("#run").click(() => {
 		run();
 		console.log("ok");
+		$("#con").css("display", "block");
+		$("#stop").css("display", "none");
 	});
-	$("#stop").click(function () {
+	$("#stop").click(()=>{
 		clearInterval(runfun);
-	});
+		$("#con").css("display", "block");
+		$("#stop").css("display", "none");
+	})
 	$("#ok").click(() => {
+		clearInterval(runfun);
+		$("#con").css("display", "block");
+		$("#stop").css("display", "none");
 		seed = $("#seed")[0].value;
 		console.log($("#seed")[0].value);
 		ref();
