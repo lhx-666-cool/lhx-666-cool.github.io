@@ -27,6 +27,8 @@ function border() {
 }
 function draw() {
 	ctx.clearRect(10, 10, 1260, 700);
+	let sco = "当前得分" + " " +String(snakex.length - 5);
+	ctx.fillText(sco, 300, 100);
 	for(let i = 0; i < snakex.length - 1; i ++) {
 		ctx.fillText("O", snakex[i] * 10, snakey[i] * 10);
 	}
