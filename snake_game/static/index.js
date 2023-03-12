@@ -49,8 +49,8 @@ function start_snake () {
 
 }
 function yummy() {
-	yummyx = parseInt(Math.random() * 126 + 1 );
-	yummyy  = parseInt(Math.random() * 70 + 1);
+	yummyx = parseInt(Math.random() * 100 + 5 );
+	yummyy  = parseInt(Math.random() * 60 + 5);
 	ctx.fillText("#", yummyx * 10, yummyy * 10);
 }
 function run () {
