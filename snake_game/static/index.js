@@ -110,7 +110,7 @@ function isdead() {
 	for(let i = 0; i < 1500; i ++) {
 		map[i] = new Array(1500);
 	}
-	if((snakex[snakex.length - 1] <= 0 || snakex[snakex.length - 1] >= 128) || (snakey[snakey.length - 1] <= 0 || snakey[snakey.length - 1] >= 72)) {
+	if((snakex[snakex.length - 1] <= 1 || snakex[snakex.length - 1] >= 128) || (snakey[snakey.length - 1] <= 1 || snakey[snakey.length - 1] >= 72)) {
 		console.log(snakex[snakex.length - 1],snakex[snakex.length - 1]);
 		return false;
 	}
