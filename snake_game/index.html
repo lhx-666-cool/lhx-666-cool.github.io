@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/snake_game/static/index.css">
-</head>
-<body>
-	<div class="game_window">
-		<canvas class="mycan" height="720px" width=1280px"" tabindex="-1"></canvas>
-	</div>
-	<script type="module">
-		import {main} from "./static/index.js";
-		main();
-	</script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/snake_game/static/index.css">
+	</head>
+	<body>
+		<div class="game_window">
+			<div class="tips">
+				<div><span style="color: white;">#</span>---1分</div>
+				<div><span style="color: lightgreen;">#</span>---2分</div>
+				<div><span style="color: aqua;">#</span>---3分</div>
+				<div><span style="color: yellow;">#</span>---5分</div>
+			</div>
+			<canvas class="mycan" height="720px" width=1280px"" tabindex="-1"></canvas>
+		</div>
+		<script type="module">
+			import {
+				main
+			} from "./static/index.js";
+			main();
+		</script>
+	</body>
 </html>
