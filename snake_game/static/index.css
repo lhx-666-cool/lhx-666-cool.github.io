@@ -2,19 +2,30 @@
 	margin: 0;
 	padding: 0;
 }
-html,body {
+
+html,
+body {
 	width: 100%;
 	height: 100%;
 }
+
 .game_window {
 	width: 100%;
 	height: 100%;
 	background-image: url("img/back.png");
-	/* background-color: bisque; */
+		/* background-color: bisque; */
 }
+
 .mycan {
 	/* background-color: red; */
 	width: 1280px;
 	height: 720px;
 	margin: 50px auto;
+}
+.tips {
+	color: white;
+	font-size: 2em;
+	position: absolute;
+	top: 100px;
+	right: 60px;
 }
