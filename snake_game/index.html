@@ -20,9 +20,16 @@
 		</div>
 		<script type="module">
 			import {
-				main
+				main,runclock,startgame
 			} from "./static/index.js";
 			main();
+			$(".mycan").on("keydown", function(e) {
+				// console.log(e.keyCode);
+				console.log(runclock);
+				if (e.key == 1 && runclock == undefined) {
+					startgame();
+				}
+			})
 		</script>
 	</body>
 </html>
