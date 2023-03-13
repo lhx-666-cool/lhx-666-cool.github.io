@@ -10,6 +10,7 @@ let state = 0; //0 右 1 下 2 左 3 上
 let old = 0;
 let yummyx = 0;
 let yummyy = 0;
+let yummyval = 0;
 let wallx = [];
 let wally = [];
 function init() {
@@ -42,7 +43,17 @@ function draw() {
 		ctx.fillText("O", snakex[i] * 10, snakey[i] * 10);
 	}
 	ctx.fillText("@", snakex[snakex.length - 1] * 10, snakey[snakey.length - 1] * 10);
+	if(yummyval == 1) {
+		ctx.fillStyle = "white";
+	}else if(yummyval == 2) {
+		ctx.fillStyle = "lightgreen";
+	}else if(yummyval == 3) {
+		ctx.fillStyle = "aqua";
+	}else {
+		ctx.fillStyle = "yellow";
+	}
 	ctx.fillText("#", yummyx * 10, yummyy * 10);
+	ctx.fillStyle = "white";
 }
 
 function start_snake() {
@@ -65,7 +76,16 @@ function start_snake() {
 function yummy() {
 	yummyx = parseInt(Math.random() * 100 + 5);
 	yummyy = parseInt(Math.random() * 60 + 5);
-	ctx.fillText("#", yummyx * 10, yummyy * 10);
+	let val = parseInt(Math.random() * 100);
+	if(val <= 45) {
+		yummyval = 1;
+	}else if(val <= 75) {
+		yummyval = 2;
+	}else if(val <= 95) {
+		yummyval = 3;
+	}else {
+		yummyval = 5;
+	}
 }
 
 function run() {
@@ -110,7 +130,7 @@ function run() {
 		deadmenu();
 	}
 	if (isyuumy()) {
-		eat++;
+		eat += yummyval;
 		yummy();
 	}
 }
