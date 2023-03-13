@@ -26,6 +26,8 @@ function init() {
 	old = 0;
 	yummyx = 0;
 	yummyy = 0;
+	wallx = [];
+	wally = [];
 }
 
 function border() {
@@ -284,5 +286,6 @@ function main() {
 export {
 	main,
 	runclock,
-	startgame
+	startgame,
+	start_snake,
 }
