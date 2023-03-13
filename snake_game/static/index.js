@@ -13,6 +13,11 @@ let yummyy = 0;
 let yummyval = 0;
 let wallx = [];
 let wally = [];
+let delicioustime = 0;
+let deliciousx = 0;
+let deliciousy = 0;
+let nopaintime = 0;
+
 function init() {
 	eat = 0;
 	snakex = [];
@@ -32,24 +37,36 @@ function border() {
 
 function draw() {
 	ctx.clearRect(10, 10, 1260, 700);
+	if (delicioustime > 0) {
+		ctx.fillStyle = "green";
+		ctx.fillRect(deliciousx * 10, deliciousy * 10, 10, 10);
+		ctx.fillStyle = "white";
+	}
+
 	ctx.fillStyle = "red";
-	for(let i = 0; i < 50; i ++) {
+	for (let i = 0; i < 50; i++) {
 		ctx.fillRect(wallx[i] * 10, wally[i] * 10, 10, 10);
 	}
 	ctx.fillStyle = "white";
 	let sco = "当前得分" + " " + String(snakex.length - 5);
 	ctx.fillText(sco, 300, 100);
+	if (nopaintime > 0) {
+		ctx.fillStyle = "red";
+	} else {
+		ctx.fillStyle = "white";
+	}
 	for (let i = 0; i < snakex.length - 1; i++) {
 		ctx.fillText("O", snakex[i] * 10, snakey[i] * 10);
 	}
+
 	ctx.fillText("@", snakex[snakex.length - 1] * 10, snakey[snakey.length - 1] * 10);
-	if(yummyval == 1) {
+	if (yummyval == 1) {
 		ctx.fillStyle = "white";
-	}else if(yummyval == 2) {
+	} else if (yummyval == 2) {
 		ctx.fillStyle = "lightgreen";
-	}else if(yummyval == 3) {
+	} else if (yummyval == 3) {
 		ctx.fillStyle = "aqua";
-	}else {
+	} else {
 		ctx.fillStyle = "yellow";
 	}
 	ctx.fillText("#", yummyx * 10, yummyy * 10);
@@ -67,7 +84,7 @@ function start_snake() {
 	snakey.push(36);
 	snakex.push(64);
 	snakey.push(36);
-	for(let i = 0; i < 100; i ++) {
+	for (let i = 0; i < 100; i++) {
 		wallx.push(parseInt(Math.random() * 100 + 5));
 		wally.push(parseInt(Math.random() * 60 + 5));
 	}
@@ -77,14 +94,21 @@ function yummy() {
 	yummyx = parseInt(Math.random() * 100 + 5);
 	yummyy = parseInt(Math.random() * 60 + 5);
 	let val = parseInt(Math.random() * 100);
-	if(val <= 45) {
+	if (val <= 45) {
 		yummyval = 1;
-	}else if(val <= 75) {
+	} else if (val <= 75) {
 		yummyval = 2;
-	}else if(val <= 95) {
+	} else if (val <= 95) {
 		yummyval = 3;
-	}else {
+	} else {
 		yummyval = 5;
+	}
+	let isde = parseInt(Math.random() * 100);
+	if (isde <= 5) {
+		delicioustime = 6;
+		deliciousx = parseInt(Math.random() * 100 + 5);
+		deliciousy = parseInt(Math.random() * 60 + 5);
+		console.log("de", deliciousx, deliciousy);
 	}
 }
 
@@ -121,26 +145,43 @@ function run() {
 		eat--;
 	}
 	old = state;
-	console.log(snakex.length);
+	// console.log(snakex.length);
 	if (isdead()) {
 		draw();
 	} else {
 		// alert("dead");
 		clearInterval(runclock);
+		runclock = undefined;
 		deadmenu();
 	}
 	if (isyuumy()) {
 		eat += yummyval;
 		yummy();
 	}
+	if (delicioustime > 0) {
+		delicioustime -= 0.1;
+	}
+	if (nopaintime > 0) {
+		nopaintime -= 0.1;
+	}
+	if (isdelicious()) {
+		nopaintime += 4;
+		delicioustime = 0;
+	}
+	console.log((isdelicious()));
+}
+
+function isdelicious() {
+	if (snakex[snakex.length - 1] == deliciousx && snakey[snakey.length - 1] == deliciousy + 1) {
+		return true;
+	}
+	return false;
 }
 
 function isyuumy() {
 	if (snakex[snakex.length - 1] == yummyx && snakey[snakey.length - 1] == yummyy) {
 		return true;
 	}
-	console.log(yummyx, yummyy);
-	console.log(snakex[snakex.length - 1], snakey[snakey.length - 1])
 	return false;
 }
 
@@ -151,15 +192,25 @@ function isdead() {
 	}
 	if ((snakex[snakex.length - 1] <= 1 || snakex[snakex.length - 1] >= 128) || (snakey[snakey.length - 1] <= 1 ||
 			snakey[snakey.length - 1] >= 72)) {
-		console.log(snakex[snakex.length - 1], snakex[snakex.length - 1]);
+		// console.log(snakex[snakex.length - 1], snakex[snakex.length - 1]);
 		return false;
 	}
-	for(let i = 0; i < 50; i ++) {
+	for (let i = 0; i < 50; i++) {
 		map[wallx[i]][wally[i] + 1] = true;
 	}
 	for (let i = 0; i < snakex.length; i++) {
 		if (map[snakex[i]][snakey[i]] == true) {
-			return false;
+			if (nopaintime > 0) {
+				for (let j = 0; j < 50; j++) {
+					if (wallx[j] == snakex[i] && wally[j] + 1 == snakey[i]) {
+						wallx[j] = 0;
+						wally[j] = 0;
+						break;
+					}
+				}
+			} else {
+				return false;
+			}
 		} else {
 			map[snakex[i]][snakey[i]] = true;
 		}
@@ -177,7 +228,7 @@ function when_down(code) {
 	} else if (code === 68) {
 		state = 0;
 	}
-	console.log(old, state);
+	// console.log(old, state);
 	if (old === 0 && state === 2) {
 		state = 0;
 	}
@@ -190,7 +241,7 @@ function when_down(code) {
 	if (old === 3 && state === 1) {
 		state = 3;
 	}
-	console.log(old, state);
+	// console.log(old, state);
 }
 let runclock;
 
@@ -202,7 +253,7 @@ function startgame() {
 	draw();
 	yummy();
 	$(".mycan").on("keydown", function(e) {
-		console.log(e.keyCode);
+		// console.log(e.keyCode);
 		when_down(e.keyCode)
 	})
 	runclock = setInterval(run, 100);
@@ -212,7 +263,9 @@ function deadmenu() {
 	ctx.clearRect(10, 10, 1260, 700);
 	ctx.fillText("你死了，按任意键退出游戏", 400, 300);
 	$(".mycan").on("keydown", function(e) {
-		location.reload();
+		if (runclock == undefined) {
+			menu();
+		}
 	})
 }
 
@@ -221,12 +274,6 @@ function menu() {
 	ctx.fillText("欢迎来到贪吃蛇小游戏", 700, 300);
 	ctx.fillText("1. 开始游戏", 700, 330);
 	ctx.fillText("2. 还没写", 700, 360);
-	$(".mycan").on("keydown", function(e) {
-		console.log(e.keyCode);
-		if (e.key == 1) {
-			startgame();
-		}
-	})
 }
 
 function main() {
@@ -235,5 +282,7 @@ function main() {
 }
 
 export {
-	main
+	main,
+	runclock,
+	startgame
 }
