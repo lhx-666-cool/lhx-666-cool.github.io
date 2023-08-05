@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<script src="https://cdn.acwing.com/static/jquery/js/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+<!-- 		<script src="//unpkg.com/layui@2.7.6/dist/layui.js">
+		<link rel="stylesheet" href="//unpkg.com/layui@2.7.6/dist/css/layui.css"> -->
+		<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui-v2.8.0/css/layui.css" />
+		<script src="https://www.layuicdn.com/layui-v2.8.0/layui.js"></script>
+	</head>
+	<body>
+		<div id="box">
+
+			<div id="top_s">
+				<div id="zzw" class="c"><p></p></div>
+				<div id="c1" class="c"><p></p></div>
+				<div id="c2" class="c"><p></p></div>
+				<div id="c3" class="c"><p></p></div>
+				<div id="c4" class="c"><p></p></div>
+				<div id="c5" class="c"><p></p></div>
+				<div id="c6" class="c"><p></p></div>
+				<div id="c7" class="c"><p></p></div>
+				<div id="c8" class="c"><p></p></div>
+				<div id="c9" class="c"><p></p></div>
+				<div id="c10" class="c"><p></p></div>
+				<div id="c11" class="c"><p></p></div>
+				<div id="c12" class="c"><p></p></div>
+				<div id="c13" class="c"><p></p></div>
+				<div id="c14" class="c"><p></p></div>
+				<div id="c15" class="c"><p></p></div>
+				<div id="c16" class="c"><p></p></div>
+				<div id="c17" class="c"><p></p></div>
+				<div id="c18" class="c"><p></p></div>
+				<div id="c19" class="c"><p></p></div>
+				<div id="c20" class="c"><p></p></div>
+			</div>
+			<div id="left_s"> 
+				<div class='l', id='l1'></div>
+				<div class='l', id='l2'></div>
+				<div class='l', id='l3'></div>
+				<div class='l', id='l4'></div>
+				<div class='l', id='l5'></div>
+				<div class='l', id='l6'></div>
+				<div class='l', id='l7'></div>
+				<div class='l', id='l8'></div>
+				<div class='l', id='l9'></div>
+				<div class='l', id='l10'></div>
+				<div class='l', id='l11'></div>
+				<div class='l', id='l12'></div>
+				<div class='l', id='l13'></div>
+				<div class='l', id='l14'></div>
+				<div class='l', id='l15'></div>
+				<div class='l', id='l16'></div>
+				<div class='l', id='l17'></div>
+				<div class='l', id='l18'></div>
+				<div class='l', id='l19'></div>
+				<div class='l', id='l20'></div>
+			</div>
+			<canvas id="mycan", width="400px", height="400px"></canvas>
+			<div id="bar">
+				<button id="design" class="layui-btn">设计关卡</button>
+				<button id="ok" class="layui-btn">设计完成</button>
+				<input id="code" readonly="readonly" />
+			</div>
+		</div>
+	</body>
+	<script type="module">
+		import{main} from "./js/index.js"
+		main()
+		$("#design").click(function() {
+			let q = String(location.href)
+			console.log(location.href)
+			let i = q.indexOf('html')
+			console.log(i)
+			q = q.substring(0, i + 4)
+			console.log(q)
+			window.location.replace(q + "?m=d")
+		})
+	</script>
+</html>
