@@ -1,0 +1,14 @@
+name: Daily Curl Command
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 每天UTC时间6点运行
+  workflow_dispatch:
+
+jobs:
+  curl-job:
+    runs-on: ubuntu-latest  # 使用最新的Ubuntu虚拟环境
+    steps:
+      - name: Run curl
+        run: |
+          curl 'https://api1.zhtec.xyz/api/user/checkin?turnstile=&captchaId=&captcha=' --compressed -X POST -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:122.0) Gecko/20100101 Firefox/122.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2' -H 'Accept-Encoding: gzip, deflate, br' -H 'Referer: https://api1.zhtec.xyz/' -H 'Origin: https://api1.zhtec.xyz' -H 'Sec-Fetch-Dest: empty' -H 'Sec-Fetch-Mode: cors' -H 'Sec-Fetch-Site: same-origin' -H 'Connection: keep-alive' -H 'Cookie: session=MTcwNzc1NDc5OHxEWDhFQVFMX2dBQUJFQUVRQUFCdV80QUFCQVp6ZEhKcGJtY01DQUFHYzNSaGRIVnpBMmx1ZEFRQ0FBSUdjM1J5YVc1bkRBUUFBbWxrQTJsdWRBUUVBUDRST0FaemRISnBibWNNQ2dBSWRYTmxjbTVoYldVR2MzUnlhVzVuREFjQUJXaDRlbnA2Qm5OMGNtbHVad3dHQUFSeWIyeGxBMmx1ZEFRQ0FBST18leBGtphljwS2eXo_s8yNCv_HtaiUhUTYGvfEL3AlcJw=; cf_clearance=Ipq_gjbndXIqgNabaABcNSVx9lfwD1wdjL.Zrc_b1gk-1708509370-1.0-AQ+WCbsMP/WT8TPlk1bkh4YdZK1SpQbYt7ujy3GqsCkbIMovlGMdnKlySxGGhTT8YUgnmNHJKmb35YQf2WD8fP8=' -H 'Content-Length: 0'
