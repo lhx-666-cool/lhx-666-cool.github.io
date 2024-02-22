@@ -2,7 +2,7 @@ name: Daily Curl Command
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # 每天UTC时间6点运行
+    - cron: '0 22 * * *'  # 每天UTC时间6点运行
   workflow_dispatch:
 
 jobs:
